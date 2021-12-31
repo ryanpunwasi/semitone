@@ -1,0 +1,167 @@
+/*
+===============
+General Styling
+===============
+*/
+
+.button {
+  display: inline-block;
+  padding: 5px 25px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.mallanna {
+  font-family: Mallanna;
+  font-weight: 600;
+}
+
+.button:active {
+  transform: translateY(6px);
+}
+
+.green:hover {
+  background-color: #1ce87e;
+}
+
+.wide {
+  width: 100%;
+}
+
+.green:active {
+  background-color: #1ce87e;
+  box-shadow: 0 3px #12bf65;
+}
+
+.green {
+  background-color: #01e16c;
+  box-shadow: 0 9px #12bf65;
+}
+
+.blue:hover {
+  background-color: #6da7f7;
+}
+
+.blue:active {
+  background-color: #6da7f7;
+  box-shadow: 0 3px #476fa6;
+}
+
+.blue {
+  background-color: #619ced;
+  box-shadow: 0 9px #476fa6;
+}
+
+.pink:hover {
+  background-color: #fab1d9;
+}
+
+.pink:active {
+  background-color: #fab1d9;
+  box-shadow: 0 3px #a13a72;
+}
+
+.pink {
+  background-color: #fc8dca;
+  box-shadow: 0 9px #a13a72;
+}
+
+.purple:hover {
+  background-color: #e1b7f7;
+}
+
+.purple:active {
+  background-color: #e1b7f7;
+  box-shadow: 0 3px #673880;
+}
+
+.purple {
+  background-color: #cc89f0;
+  box-shadow: 0 9px #673880;
+}
+
+.wintermint:hover {
+  background-color: #87e8d6;
+}
+
+.wintermint:active {
+  background-color: #87e8d6;
+  box-shadow: 0 3px #3e8074;
+}
+
+.wintermint {
+  background-color: #7acfbf;
+  box-shadow: 0 9px #3e8074;
+}
+
+.grey:hover {
+  background-color: #cecece;
+}
+
+.grey:active {
+  background-color: #cecece;
+  box-shadow: 0 3px #5c5c5c;
+}
+
+.grey {
+  background-color: #b1b1b1;
+  box-shadow: 0 9px #5c5c5c;
+}
+
+.tangerine:hover {
+  background-color: #fff3e8;
+}
+
+.tangerine:active {
+  background-color: #fff3e8;
+  box-shadow: 0 3px #caa586;
+}
+
+.tangerine {
+  color: #f36a00;
+  background-color: #ffe5e0;
+  box-shadow: 0 9px #caa586;
+}
+
+.red {
+  color: #ffffff;
+  background-color: #f55d41;
+  box-shadow: 0 9px #c74b34;
+}
+
+.red:hover {
+  background-color: #fa6b50;
+}
+
+.red:active {
+  background-color: #fa6b50;
+  box-shadow: 0 3px #c74b34;
+}
+
+.outline {
+  color: #5e5e5e;
+  background-color: transparent;
+  border-top: 3px solid #b1b1b1;
+  border-left: 3px solid #b1b1b1;
+  border-right: 3px solid #b1b1b1;
+  box-shadow: 0 6px #b1b1b1;
+}
+
+.outline:active {
+  background-color: transparent;
+  box-shadow: 0 3px #b1b1b1;
+}
+
+@media only screen and (max-width: 575px) {
+  .button {
+    font-size: 0.8rem;
+  }
+}

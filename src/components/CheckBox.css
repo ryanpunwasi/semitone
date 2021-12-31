@@ -1,0 +1,123 @@
+.form-check input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  min-width: 150px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.transparent {
+  color: #5e5e5e;
+  background-color: transparent;
+  border-top: 3px solid #b1b1b1;
+  border-left: 3px solid #b1b1b1;
+  border-right: 3px solid #b1b1b1;
+  box-shadow: 0 6px #b1b1b1;
+}
+
+.transparent:active {
+  background-color: transparent;
+  box-shadow: 0 3px #b1b1b1;
+  transform: translateY(6px);
+}
+
+.darkblue:active {
+  background-color: transparent;
+  box-shadow: 0 3px #476fa6;
+  transform: translateY(6px);
+}
+
+.darkblue {
+  background-color: transparent;
+  box-shadow: 0 9px #476fa6;
+  color: #476fa6;
+  border-top: 3px solid #476fa6;
+  border-left: 3px solid #476fa6;
+  border-right: 3px solid #476fa6;
+  box-shadow: 0 6px #476fa6;
+}
+
+.darkred {
+  background-color: transparent;
+  box-shadow: 0 9px #c74b34;
+  color: #c74b34;
+  border-top: 3px solid #c74b34;
+  border-left: 3px solid #c74b34;
+  border-right: 3px solid #c74b34;
+  box-shadow: 0 6px #c74b34;
+}
+
+.darkred:active {
+  background-color: transparent;
+  box-shadow: 0 3px #c74b34;
+  transform: translateY(6px);
+}
+
+.form-check input:checked ~ .transparent {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  transform: translateY(6px);
+  box-shadow: 0 3px #b1b1b1;
+  color: rgb(255, 255, 255);
+  background-color: #b1b1b1;
+  font-weight: 900;
+}
+.form-check input:not(:checked) ~ .transparent {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  background-color: transparent;
+}
+
+.form-check input:checked ~ .darkblue {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  transform: translateY(6px);
+  box-shadow: 0 3px #476fa6;
+  color: rgb(255, 255, 255);
+  background-color: #476fa6;
+  font-weight: 900;
+}
+.form-check input:not(:checked) ~ .darkblue {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  background-color: transparent;
+}
+
+.form-check input:checked ~ .darkred {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  transform: translateY(6px);
+  box-shadow: 0 3px #c74b34;
+  color: rgb(255, 255, 255);
+  background-color: #c74b34;
+  font-weight: 900;
+}
+.form-check input:not(:checked) ~ .darkred {
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  transition-timing-function: ease-out;
+  background-color: transparent;
+}

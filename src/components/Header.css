@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.nav-link {
+  font-family: 'Mallanna';
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.logo-text {
+  font-family: 'Dancing Script';
+}

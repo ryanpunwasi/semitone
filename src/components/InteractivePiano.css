@@ -1,0 +1,7 @@
+#interactivePiano {
+  max-width: 40vw;
+}
+
+#interactivePiano:hover {
+  cursor: pointer;
+}

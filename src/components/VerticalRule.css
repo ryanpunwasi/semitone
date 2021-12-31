@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+  #vertical-rule {
+    border: none !important;
+  }
+}

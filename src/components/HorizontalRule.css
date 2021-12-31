@@ -1,0 +1,12 @@
+.hr-text {
+  width: 100%;
+  text-align: center;
+  border-bottom: 3px solid #c0c0c0;
+  line-height: 0.2em;
+  margin: 10px 0 20px;
+}
+
+.hr-text span {
+  background: #fff;
+  padding: 0 10px;
+}

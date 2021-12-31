@@ -1,0 +1,68 @@
+.fixed-bottom {
+  min-height: 12vh;
+  height: 0;
+  z-index: 2;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.banner-text-green {
+  font-size: 1.4rem;
+  color: green;
+}
+
+.banner-green {
+  background-color: rgb(189, 255, 198);
+}
+
+.banner-red {
+  background-color: rgb(250, 181, 181);
+}
+
+.banner-transparent {
+  background-color: rgb(245, 245, 245);
+  border-top: 3px solid #b9b9b9;
+}
+
+.banner-text-transparent {
+  color: #4e4e4e;
+}
+
+.banner-text-red {
+  color: rgb(173, 0, 0);
+  font-size: 1.4rem;
+}
+
+@media (max-height: 576px) {
+  .fixed-bottom {
+    min-height: 12vh;
+    max-height: 12vh;
+  }
+
+  .banner-text-red,
+  .banner-text-green {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-height: 768px) {
+  .fixed-bottom {
+    min-height: 12vh;
+  }
+
+  .banner-text-red,
+  .banner-text-green {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-height: 992px) {
+  .fixed-bottom {
+    min-height: 12vh;
+  }
+
+  .banner-text-red,
+  .banner-text-green {
+    font-size: 1.1rem;
+  }
+}
