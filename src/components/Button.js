@@ -1,4 +1,5 @@
 import React from 'react';
+import { createQuestions } from '../createQuestions';
 import './Button.css';
 
 const Button = (props) => {
@@ -17,6 +18,7 @@ const Button = (props) => {
 
   const submitForm = () => {
     console.log(props.submit);
+    createQuestions(props.mode, props.submit);
   }
 
   if(props.submit) {

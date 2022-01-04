@@ -6,9 +6,9 @@ import E from '../assets/octave-3/E.mp3';
 import F from '../assets/octave-3/F.mp3';
 import Fsharp from '../assets/octave-3/Fsharp.mp3';
 import G from '../assets/octave-3/G.mp3';
-import Aflat from '../assets/octave-3/Aflat.mp3';
+import Aflat from '../assets/octave-3/Gsharp.mp3';
 import A from '../assets/octave-3/A.mp3';
-import Bflat from '../assets/octave-3/Bflat.mp3';
+import Bflat from '../assets/octave-3/Asharp.mp3';
 import B from '../assets/octave-3/B.mp3';
 
 const three = {
