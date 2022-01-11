@@ -1,7 +1,7 @@
 import C from '../assets/octave-4/C.mp3';
 import Csharp from '../assets/octave-4/Csharp.mp3';
 import D from '../assets/octave-4/D.mp3';
-import Eflat from '../assets/octave-4/Dsharp.mp3';
+import Dsharp from '../assets/octave-4/Dsharp.mp3';
 import E from '../assets/octave-4/E.mp3';
 import F from '../assets/octave-4/F.mp3';
 import Fsharp from '../assets/octave-4/Fsharp.mp3';
@@ -15,7 +15,7 @@ const four = {
   C: C,
   Csharp: Csharp,
   D: D,
-  Eflat: Eflat,
+  Dsharp,
   E: E,
   F: F,
   Fsharp: Fsharp,
