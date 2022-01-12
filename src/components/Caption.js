@@ -26,8 +26,8 @@ class Caption extends React.Component {
         ],
         duration: 1000,
         easing: 'linear',
-        delay: 1000, 
-        loop: false
+        delay: 2000, 
+        loop: true
       });
     }
   }

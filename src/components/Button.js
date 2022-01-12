@@ -1,5 +1,5 @@
 import React from 'react';
-import { createQuestions } from '../createQuestions';
+import { createQuestions } from '../utils/createQuestions';
 import './Button.css';
 
 const Button = (props) => {
@@ -14,6 +14,18 @@ const Button = (props) => {
     if(props.facebook) {
       return <i className="bi bi-facebook me-2"></i>;
     }
+  }
+
+  const renderIcon = () => {
+    if(props.icon) {
+      return (
+        <>
+          <i className="bi bi-music-note"></i>
+          <i className="bi bi-music-note-beamed"></i>
+        </>
+      );
+    }
+    
   }
 
   const submitForm = () => {
@@ -33,9 +45,11 @@ const Button = (props) => {
     return (
       <div>
         <button className={`mb-3 button ${props.wide ? 'wide': ''} ${props.color}`} onClick={props.onClick}>
+          
           {renderGoogle()}
           {renderFacebook()}
           {props.text}
+          {renderIcon()}
         </button>
       </div>
     );

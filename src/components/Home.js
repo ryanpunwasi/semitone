@@ -23,7 +23,7 @@ const Home = () => {
     <div className='container'>
       <div className='row'>
         <div className='col-sm-6 col-md-6 col-lg-4 mx-auto mt-5 mb-0'>
-        <Button text='Continue with Google' color='red' wide google></Button>
+        <Button text='Continue' color='blue' wide icon></Button>
         <div className='row mb-5'>
           <div className='col'>
             <Link className='d-inline' to='/onboarding'>

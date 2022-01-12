@@ -11,7 +11,7 @@ import A from '../assets/octave-3/A.mp3';
 import Bflat from '../assets/octave-3/Asharp.mp3';
 import B from '../assets/octave-3/B.mp3';
 
-const three = {
+export const three = {
   C: C,
   Csharp: Csharp,
   D: D,
@@ -25,5 +25,3 @@ const three = {
   Bflat: Bflat,
   B: B
 };
-
-export default three;

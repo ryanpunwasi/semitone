@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CheckBox from './CheckBox';
 import Button from './Button';
-import { createQuestions } from '../createQuestions';
+import { createQuestions } from '../utils/createQuestions';
 import Trombone from '../assets/img/trombone.svg';
 import HorizontalRule from './HorizontalRule';
 import './VerticalRule.css';
