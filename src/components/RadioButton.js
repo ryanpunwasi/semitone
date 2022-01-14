@@ -48,7 +48,7 @@ class RadioButton extends React.Component {
     return (
         <div className={`form-radio`}>
           <label className="form-radio-label">
-            <input className="form control form-radio-input" name="answer" type="radio" value={this.props.value} onChange={this.updateState}/>
+            <input className="form control form-radio-input" name="answer" type="radio" value={this.props.value} onChange={this.updateState} onClick={this.updateState}/>
             <span className={`radio ${this.props.color}`}>
               {this.props.value}
               {this.renderSymbol()}

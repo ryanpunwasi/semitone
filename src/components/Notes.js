@@ -11,9 +11,7 @@ class Notes extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      major: false,
-      minor: false,
-      octave: 3,
+      octave: '3',
       c: false, csharp: false, d: false,
       eflat: false, e: false, f: false,
       fsharp: false, g: false, aflat: false,
@@ -31,12 +29,6 @@ class Notes extends React.Component {
 
   handleClick = (key, value) => {
     switch(key) {
-      case 'major':
-        this.setState({ major: value});
-        break;
-      case 'minor':
-        this.setState({ minor: value});
-        break;
       case 'c':
         this.setState({ c: value});
         break;

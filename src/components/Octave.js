@@ -10,33 +10,46 @@ import './VerticalRule.css';
 class Octave extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 1: false, 2: false, 3: false, 4: false, 5: false };
+    this.state = { 1: false, 2: false, 3: false, 4: false, 5: false, selected: 0 };
   }
 
   handleClick = (key, value) => {
+    let selected = this.state.selected;
+    if(value) {
+      selected = selected + 1;
+    } else {
+      selected = this.state.selected - 1;
+    }
+    
     switch(key) {
       case '1':
-        this.setState({ 1: value});
+        this.setState({ 1: value, selected });
         break;
       case '2':
-        this.setState({ 2: value});
+        this.setState({ 2: value, selected });
         break;
       case '3':
-        this.setState({ 3: value});
+        this.setState({ 3: value, selected });
         break;
         case '4':
-      this.setState({ 4: value});
+      this.setState({ 4: value, selected });
       break;
       case '5':
-        this.setState({ 5: value});
+        this.setState({ 5: value, selected });
         break;
       default:
         break;
     }
   }
 
+  renderDisabled = () => {
+    if(this.state.selected >= 2) {
+      return false;
+    } 
+    return true;
+  }
+  
   handleSubmit = () => {
-    console.log('hi')
     createQuestions('octaves', this.state);
   }
 
@@ -74,7 +87,7 @@ class Octave extends React.Component {
               
             </div>
             <div className="d-flex justify-content-center ms-4 mt-3 mb-5">  
-                <Button mode='octaves' color="purple" text="Start" wide submit={this.state}></Button>
+                <Button mode='octaves' color="purple" text="Start" wide submit={this.state} disabled={this.renderDisabled()}></Button>
             </div>
           </div>
         </div>

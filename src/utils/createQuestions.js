@@ -13,6 +13,11 @@ export const createQuestions = (mode, params) => {
    * 2. answer - A string[int] denoting which option is the correct answer, 0 < answer <= 4
    * 3. options - An object containing a label property and a soundFile property
   **/
+  
+  const newParams = {};
+  Object.assign(newParams, params);
+  delete newParams.selected;
+  _.keys(newParams)
 
   const questions = [];
 
@@ -30,8 +35,8 @@ export const createQuestions = (mode, params) => {
 
     let selected_octaves = [];
 
-    for (const octave in params) {
-      if(params[octave]) {
+    for (const octave in newParams) {
+      if(newParams[octave]) {
         selected_octaves.push(`${octave}`);
       }
     }

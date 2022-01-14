@@ -4,28 +4,12 @@ import './Button.css';
 
 const Button = (props) => {
 
+  //const [disabled, setDisabled] = useState(true);
+
   const renderGoogle = () => {
     if(props.google) {
       return <i className="bi bi-google me-2"></i>;
     }
-  }
-
-  const renderFacebook = () => {
-    if(props.facebook) {
-      return <i className="bi bi-facebook me-2"></i>;
-    }
-  }
-
-  const renderIcon = () => {
-    if(props.icon) {
-      return (
-        <>
-          <i className="bi bi-music-note"></i>
-          <i className="bi bi-music-note-beamed"></i>
-        </>
-      );
-    }
-    
   }
 
   const submitForm = () => {
@@ -34,6 +18,15 @@ const Button = (props) => {
   }
 
   if(props.submit) {
+    if(props.disabled) {
+      return (
+        <div>
+        <button onClick={submitForm} className={`disabled mb-3 button ${props.wide ? 'wide': ''} ${props.color}`} disabled>
+          {props.text}
+        </button>
+      </div>
+      );
+    }
     return (
       <div>
         <button onClick={submitForm} className={`mb-3 button ${props.wide ? 'wide': ''} ${props.color}`}>
@@ -45,11 +38,8 @@ const Button = (props) => {
     return (
       <div>
         <button className={`mb-3 button ${props.wide ? 'wide': ''} ${props.color}`} onClick={props.onClick}>
-          
           {renderGoogle()}
-          {renderFacebook()}
           {props.text}
-          {renderIcon()}
         </button>
       </div>
     );

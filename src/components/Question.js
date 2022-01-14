@@ -4,6 +4,11 @@ import InterfaceButton from './InterfaceButton';
 import RadioButton from './RadioButton';
 import './Question.css';
 import DSharp from '../assets/octave-4/Dsharp.mp3';
+import DSharp3 from '../assets/octave-3/Eflat.mp3';
+import C from '../assets/octave-4/C.mp3';
+import G from '../assets/octave-3/G.mp3';
+import E from '../assets/octave-2/E.mp3';
+
 
 class Question extends React.Component {
   constructor(props) {
@@ -48,10 +53,10 @@ class Question extends React.Component {
         <div id="buttonGroup" className="col-6 mt-3">
             <form className='d-flex flex-row justify-content-center flex-wrap'>
             
-              <RadioButton handleClick={this.handleClick} value="1" color="transparent" note={new Audio(DSharp)}/>
-              <RadioButton handleClick={this.handleClick} value="2" color="transparent" note={new Audio(DSharp)}/>
-              <RadioButton handleClick={this.handleClick} value="3" color="transparent" note={new Audio(DSharp)}/>
-              <RadioButton handleClick={this.handleClick} value="4" color="transparent" note={new Audio(DSharp)}/>
+              <RadioButton handleClick={this.handleClick} value="1" color="transparent" note={new Audio(C)}/>
+              <RadioButton handleClick={this.handleClick} value="2" color="transparent" note={new Audio(G)}/>
+              <RadioButton handleClick={this.handleClick} value="3" color="transparent" note={new Audio(E)}/>
+              <RadioButton handleClick={this.handleClick} value="4" color="transparent" note={new Audio(DSharp3)}/>
           
             </form>
         </div>
