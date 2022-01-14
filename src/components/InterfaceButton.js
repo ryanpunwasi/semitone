@@ -87,11 +87,11 @@ class InterfaceButton extends React.Component {
 
   renderSymbol = () => {
     if(this.props.flat) {
-      return '♭';
+      return <span><sup>♭</sup></span>;
     }
 
     if(this.props.sharp) {
-      return '♯';
+      return <span><sup>♯</sup></span>;
     }
   }
 
@@ -127,7 +127,8 @@ class InterfaceButton extends React.Component {
       <div>
         <button className={`mb-3 button interface-button ${this.renderDisabled().class} ${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
           {this.renderAudioIcon()}
-          {`${this.props.text}`}
+          
+          {this.props.text}
           {this.renderSymbol()}
           {this.renderOctave()}
           {this.renderChordNotation()}

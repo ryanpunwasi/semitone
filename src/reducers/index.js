@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import playInteractivePianoNote from "./playInteractivePianoReducer";
-import createPracticeSession from "./createPracticeSessionReducer";
+import practiceSession from "./practiceSessionReducer";
 
 export default combineReducers({
     interactivepiano: playInteractivePianoNote,
-    practice: createPracticeSession
+    practice: practiceSession
 });

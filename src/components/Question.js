@@ -47,7 +47,7 @@ class Question extends React.Component {
       <React.Fragment>
         <div className="col-6 mt-5">
           <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center  align-items-center'>
-            <InterfaceButton text="" color="blue" note={new Audio(DSharp)} play/>
+            <InterfaceButton text="D" sharp octave='3' color="blue" note={new Audio(DSharp)}/>
           </div>
         </div>
         <div id="buttonGroup" className="col-6 mt-3">

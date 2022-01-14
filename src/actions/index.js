@@ -26,9 +26,9 @@ export const createPracticeSession = (mode, formValues) => async (dispatch) => {
 };
 
 export const clearPracticeSession = () => {
-  return {
-      type: CLEAR_PRACTICE_SESSION,
-    }
+  return { 
+    type: CLEAR_PRACTICE_SESSION 
+  };
 }
 
 export const nextQuestion = () => {

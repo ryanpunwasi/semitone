@@ -1,12 +1,19 @@
 import React from "react";
+import { connect } from 'react-redux';
 import Question from "./Question";
 import Banner from './Banner';
 import Modal from "./Modal";
+
+import { clearPracticeSession } from "../actions";
 
 class Practice extends React.Component {
   constructor(props){
     super(props);
     this.state = { open: false }
+  }
+
+  componentWillUnmount(){
+    this.props.clearPracticeSession();
   }
 
   closeModal = () => {
@@ -18,7 +25,7 @@ class Practice extends React.Component {
       <div className='container'>
         <div className="row">
         <div className="d-flex justify-content-between">
-          <div className='mt-3 ms-3 h3 pe-auto' onClick={() => this.setState({open: true})}>
+          <div className='mt-5 ms-3 h3 pe-auto' onClick={() => this.setState({open: true})}>
             <i className="bi bi-x-lg x"></i>
           </div>
         </div>
@@ -36,5 +43,15 @@ class Practice extends React.Component {
   }
 }
 
-export default Practice;
+const mapStateToProps = (state) => {
+  return { 
+    id: state.practice.id,
+    currentQuestion: state.practice.currentQuestion,
+    mode: state.practice.mode,
+    correct: state.practice.correct,
+    questions: state.practice.questions
+  };
+}
+
+export default connect(mapStateToProps, { clearPracticeSession })(Practice);
 

@@ -44,7 +44,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Router history={history}>
-          <Header />
+          <Header/>
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/octaveinfo' exact component={OctaveInfo} />

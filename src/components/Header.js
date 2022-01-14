@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import IconOne from '../assets/img/051-electric-guitar.svg';
 import IconTwo from '../assets/img/trombone.svg';
@@ -8,6 +8,10 @@ import IconFour from '../assets/img/clarinet.svg';
 import './Header.css';
 
 const Header = () => {
+  if(useLocation().pathname.split('/').includes('practice')) {
+    return null;
+  }
+
   return (
     <nav className='navbar navbar-light bg-light p-1 border-bottom border-2 mb-4'>
         <ul className="navbar-nav">
