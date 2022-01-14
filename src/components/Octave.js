@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CheckBox from './CheckBox';
 import Button from './Button';
-import { createQuestions } from '../utils/createQuestions';
 import Trombone from '../assets/img/trombone.svg';
 import HorizontalRule from './HorizontalRule';
 import './VerticalRule.css';
@@ -49,10 +48,6 @@ class Octave extends React.Component {
     return true;
   }
   
-  handleSubmit = () => {
-    createQuestions('octaves', this.state);
-  }
-
   render(){
     return (
       <div className="container">
@@ -87,7 +82,7 @@ class Octave extends React.Component {
               
             </div>
             <div className="d-flex justify-content-center ms-4 mt-3 mb-5">  
-                <Button mode='octaves' color="purple" text="Start" wide submit={this.state} disabled={this.renderDisabled()}></Button>
+                <Button color="purple" text="Start" wide submit={this.state} modality='octaves' disabled={this.renderDisabled()}></Button>
             </div>
           </div>
         </div>

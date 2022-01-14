@@ -4,7 +4,6 @@ import {
   CLEAR_PRACTICE_SESSION,
   NEXT_QUESTION
 } from './types';
-
 import history from '../history';
 
 export const playInteractivePianoNote = () => {
@@ -13,18 +12,23 @@ export const playInteractivePianoNote = () => {
   };
 };
 
-export const createPracticeSession = (mode) => {
-  return {
+export const createPracticeSession = (mode, formValues) => async (dispatch) => {
+  dispatch({
     type: CREATE_PRACTICE_SESSION, 
-    payload: mode
-  }
-}
+    payload: {
+      mode, 
+      formValues
+    }
+  });
 
-export const clearPracticeSession = (id) => {
+  history.push('/octaves/practice');
+
+};
+
+export const clearPracticeSession = () => {
   return {
-    type: CLEAR_PRACTICE_SESSION,
-    payload: id
-  }
+      type: CLEAR_PRACTICE_SESSION,
+    }
 }
 
 export const nextQuestion = () => {

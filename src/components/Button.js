@@ -1,10 +1,10 @@
 import React from 'react';
-import { createQuestions } from '../utils/createQuestions';
+import { connect } from 'react-redux';
+import { createPracticeSession } from '../actions';
+//import { createQuestions } from '../utils/createQuestions';
 import './Button.css';
 
 const Button = (props) => {
-
-  //const [disabled, setDisabled] = useState(true);
 
   const renderGoogle = () => {
     if(props.google) {
@@ -13,8 +13,8 @@ const Button = (props) => {
   }
 
   const submitForm = () => {
-    console.log(props.submit);
-    createQuestions(props.mode, props.submit);
+    //console.log(props.submit, props.modality);
+    props.createPracticeSession(props.modality, props.submit);
   }
 
   if(props.submit) {
@@ -47,4 +47,14 @@ const Button = (props) => {
   
 }
 
-export default Button;
+const mapStateToProps = (state) => {
+  return { 
+    id: state.practice.id,
+    currentQuestion: state.practice.currentQuestion,
+    mode: state.practice.mode,
+    correct: state.practice.correct,
+    questions: state.practice.questions
+  };
+}
+
+export default connect(mapStateToProps, { createPracticeSession })(Button);

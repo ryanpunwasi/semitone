@@ -82,8 +82,6 @@ export const createQuestions = (mode, params) => {
 
       questions.push(question);
     }
-
-  console.log(selected_octaves, notes_to_practice, questions);
   }
   
   return questions;
