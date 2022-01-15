@@ -12,6 +12,9 @@ class Practice extends React.Component {
     this.state = { open: false }
   }
 
+  componentDidMount(){
+    console.log(this.props.questions)
+  }
   componentWillUnmount(){
     this.props.clearPracticeSession();
   }
@@ -33,7 +36,7 @@ class Practice extends React.Component {
       </div>
         <div className='row mt-3'>
             <Modal open={this.state.open} onClose={this.closeModal}/>
-            <Question />
+            <Question question={this.props.questions[this.props.currentQuestion]}/>
         </div>
         <div className='row mt-5'>
           <Banner />
