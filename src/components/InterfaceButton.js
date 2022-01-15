@@ -38,6 +38,7 @@ class InterfaceButton extends React.Component {
     this.props.note.onended = () => {
       this.setState({ isPlaying: false});
     }
+    
     this.setState({ isPlaying: true });
     this.props.note.load()
     this.props.note.play();  

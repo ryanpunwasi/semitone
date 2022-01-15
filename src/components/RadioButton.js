@@ -8,6 +8,24 @@ class RadioButton extends React.Component {
     this.state = { isPlaying: false }
   }
 
+  componentDidMount() {
+    if(this.props.note) {
+      this.props.note.preload = 'auto';
+    }
+  }
+
+  componentWillUnmount() {
+    if(this.state.isPlaying) {
+      if(this.props.note) {
+        this.props.note.pause();
+      } else {
+        this.props.chord.root.pause()
+        this.props.chord.third.pause()
+        this.props.chord.fifth.pause()
+      }
+    }
+  }
+
   updateState = () => {
     this.props.handleClick(this.props.value);
     this.playNote(this.props.note)
@@ -30,22 +48,28 @@ class RadioButton extends React.Component {
   }
 
   playNote = () => {
-    
+    let playPromise = this.props.note.play();
     if(this.state.isPlaying) {
-      this.props.note.pause();
+      playPromise.then(_ => {
+          this.props.note.pause();
+      });
     }
-
+      
     this.props.note.onended = () => {
       this.setState({ isPlaying: false});
     }
+
     this.setState({ isPlaying: true });
-    this.props.note.load()
-    this.props.note.play();  
+    // this.props.note.load()
+
+    // this.props.note.play();  
+    
 
      
   }
+
   render(){
-    return (
+    return ( 
         <div className={`form-radio`}>
           <label className="form-radio-label">
             <input className="form control form-radio-input" name="answer" type="radio" value={this.props.value} onChange={this.updateState} onClick={this.updateState}/>
