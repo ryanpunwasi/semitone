@@ -2,7 +2,9 @@ import {
   PLAY_INTERACTIVE_PIANO_NOTE,
   CREATE_PRACTICE_SESSION,
   CLEAR_PRACTICE_SESSION,
-  NEXT_QUESTION
+  CHANGE_SELECTED,
+  NEXT_QUESTION,
+  INCREMENT_CORRECT_ANSWER
 } from './types';
 import history from '../history';
 
@@ -34,5 +36,18 @@ export const clearPracticeSession = () => {
 export const nextQuestion = () => {
   return {
     type: NEXT_QUESTION
+  }
+}
+
+export const changeSelected = val => {
+  return {
+    type: CHANGE_SELECTED,
+    payload: val
+  }
+}
+
+export const incrementCorrectAnswer = () => {
+  return {
+    type: INCREMENT_CORRECT_ANSWER
   }
 }

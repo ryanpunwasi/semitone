@@ -4,7 +4,7 @@ import Button from './Button';
 import { Link } from 'react-router-dom';
 
 class Score extends React.Component {
-  state = { answered_correct: 13 };
+  state = { answered_correct: 10 };
   render() {
     return(
       <div className="container">
@@ -15,7 +15,7 @@ class Score extends React.Component {
         </div>
         <div className="row">
           <div className="col">
-            <Caption size='2.5rem' text={`You answered ${this.state.answered_correct} out of 14 questions correctly. Keep it going!`}></Caption>
+            <Caption size='2.5rem' text={`You answered ${this.state.answered_correct} out of 12 questions correctly. Keep it going!`}></Caption>
           </div>
         </div>
         <div className="row mt-5">

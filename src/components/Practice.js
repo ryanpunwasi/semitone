@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import anime from "animejs";
 import Question from "./Question";
 import Banner from './Banner';
 import Modal from "./Modal";
@@ -9,12 +10,30 @@ import { clearPracticeSession } from "../actions";
 class Practice extends React.Component {
   constructor(props){
     super(props);
-    this.state = { open: false }
+    this.state = { open: false, value: null }
   }
 
-  componentDidMount(){
-    console.log(this.props.questions)
+  deSelectRadioButton = () => {
+    const radios = document.getElementsByTagName('input');
+    for(let i = 0; i < radios.length; i++ ) {
+      radios[i].checked = false;
+    }
   }
+
+  animate = () => {
+    anime({
+      targets: '.sound-button',
+      keyframes: [
+        {scale: 0.9},
+        {scale: 1.2},
+        {scale: 0.9},
+        {scale: 1},
+      ],
+      duration: 600,
+      easing: 'easeInOutQuad'
+    });
+  }
+
   componentWillUnmount(){
     this.props.clearPracticeSession();
   }
@@ -22,6 +41,8 @@ class Practice extends React.Component {
   closeModal = () => {
     this.setState({ open: false });
   }
+
+  
 
   render() {
     return (
@@ -32,14 +53,13 @@ class Practice extends React.Component {
             <i className="bi bi-x-lg x"></i>
           </div>
         </div>
-        
       </div>
-        <div className='row mt-3'>
+        <div className='row mt-3 question'>
             <Modal open={this.state.open} onClose={this.closeModal}/>
             <Question question={this.props.questions[this.props.currentQuestion]}/>
         </div>
         <div className='row mt-5'>
-          <Banner />
+          <Banner reset={this.deSelectRadioButton} animate={this.animate} question={this.props.questions[this.props.currentQuestion]} selectedAnswer={this.props.selectedAnswer}/>
         </div>
       </div>
     );
@@ -52,7 +72,8 @@ const mapStateToProps = (state) => {
     currentQuestion: state.practice.currentQuestion,
     mode: state.practice.mode,
     correct: state.practice.correct,
-    questions: state.practice.questions
+    questions: state.practice.questions,
+    selectedAnswer: state.practice.selectedAnswer
   };
 }
 

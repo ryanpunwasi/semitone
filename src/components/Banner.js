@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { nextQuestion, incrementCorrectAnswer } from '../actions';
 import Button from './Button';
 
 import './Banner.css';
@@ -6,21 +8,37 @@ import './Banner.css';
 class Banner extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { style: 'none'};
+    this.state = { style: 'none', hasAnswered: false};
   }
 
   renderStyle = () => {
     if(this.state.style === 'correct') {
       return {color: 'green', text: "That's correct!", buttonText: 'Continue'};
     } else if(this.state.style === 'incorrect') {
-      return {color: 'red', text: "That's incorrect.", buttonText: 'Continue'}
+      return {color: 'red', text: `The correct answer is ${this.props.question.answer}.`, buttonText: 'Continue'}
     } else {
       return {color: 'transparent', text: '', buttonText: 'Check'}
     }
   }
 
   handleClick = () => {
-    this.setState({ style: 'correct'});
+    if(!this.props.selectedAnswer) {
+      return;
+    }
+    if(this.state.hasAnswered) {
+      this.props.reset();
+      this.props.nextQuestion();
+      this.props.animate();
+      this.setState({ style: 'none', hasAnswered: false });
+    } else {
+      // eslint-disable-next-line eqeqeq
+      if(this.props.question.answer == this.props.selectedAnswer) {
+        this.props.incrementCorrectAnswer();
+        this.setState({ style: 'correct', hasAnswered: true});
+      } else if(this.props.question.answer !== this.props.selectedAnswer){
+        this.setState({ style: 'incorrect', hasAnswered: true });
+      }
+    }  
   }
 
   render(){
@@ -39,4 +57,5 @@ class Banner extends React.Component {
     );
   }
 }
-export default Banner;
+
+export default connect(null, { nextQuestion, incrementCorrectAnswer })(Banner);

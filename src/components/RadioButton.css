@@ -118,6 +118,7 @@
   background-color: #c74b34;
   font-weight: 900;
 }
+
 .form-radio input:not(:checked) ~ .darkred {
   transition-property: background-color;
   transition-duration: 0.1s;
