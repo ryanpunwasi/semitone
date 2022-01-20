@@ -35,7 +35,7 @@ export default function Modal({ open, children, onClose}) {
       <div style={OVERLAY}/>
       <div style={MODAL_STYLE} className='bg-light'>
         <p style={{ color: '#f55d41' }} className="fw-bolder h3 text-center mb-5">Exit Session?</p>
-        <Link to='./'>
+        <Link to='/octaves'>
           <Button text="Exit" color='red' wide/>
         </Link>
         <Button text="Cancel" color='transparent' onClick={onClose} wide />

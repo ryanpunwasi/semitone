@@ -9,13 +9,13 @@ class Score extends React.Component {
     return(
       <div className="container">
         <div className="row">
-          <div className="col mt-4">
-            <Caption size='9rem' text={`${Math.round((this.state.answered_correct/14)*100)}%`} animated></Caption>
+          <div className="col mt-5">
+            <Caption size='9rem' text={`${Math.round((this.props.answered_correct/14)*100)}%`} animated></Caption>
           </div>
         </div>
         <div className="row">
-          <div className="col">
-            <Caption size='2.5rem' text={`You answered ${this.state.answered_correct} out of 12 questions correctly. Keep it going!`}></Caption>
+          <div className="col mt-3">
+            <Caption size='2.5rem' text={`You answered ${this.props.answered_correct} out of 12 questions correctly. Keep it going!`}></Caption>
           </div>
         </div>
         <div className="row mt-5">
@@ -25,14 +25,19 @@ class Score extends React.Component {
             </Link>
           </div>
           <div className="col-3">
-
-            <Button text="Notes" color="blue" wide></Button>
+            <Link to='/notes'>
+              <Button text="Notes" color="blue" wide></Button>
+            </Link>
           </div>
           <div className="col-3">
-            <Button text="Chords" color="red" wide></Button>
+            <Link to='/chords'>
+              <Button text="Chords" color="red" wide></Button>
+            </Link>
           </div>
           <div className="col-3">
-            <Button text="Scales" color="green" wide></Button>
+            <Link to='/scales'>
+              <Button text="Scales" color="green" wide></Button>
+            </Link>
           </div>
         </div>
       </div>

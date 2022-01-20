@@ -23,7 +23,7 @@ export const createPracticeSession = (mode, formValues) => async (dispatch) => {
     }
   });
 
-  history.push('/octaves/practice');
+  history.push(`/${mode}/practice`);
 
 };
 

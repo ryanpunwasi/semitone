@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import anime from "animejs";
 import Question from "./Question";
+import Score from './Score';
 import Banner from './Banner';
 import Modal from "./Modal";
 
@@ -10,7 +11,7 @@ import { clearPracticeSession } from "../actions";
 class Practice extends React.Component {
   constructor(props){
     super(props);
-    this.state = { open: false, value: null }
+    this.state = { open: false, value: null, scorePage: false }
   }
 
   deSelectRadioButton = () => {
@@ -33,7 +34,7 @@ class Practice extends React.Component {
       easing: 'easeInOutQuad'
     });
   }
-
+  
   componentWillUnmount(){
     this.props.clearPracticeSession();
   }
@@ -42,9 +43,13 @@ class Practice extends React.Component {
     this.setState({ open: false });
   }
 
-  
-
   render() {
+    // eslint-disable-next-line eqeqeq
+    if(this.props.currentQuestion == '12') {
+      return (
+        <Score answered_correct={this.props.correct}></Score>
+      );
+    }
     return (
       <div className='container'>
         <div className="row">

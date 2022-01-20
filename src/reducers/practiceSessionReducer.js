@@ -1,5 +1,11 @@
 import _ from 'lodash';
-import { CREATE_PRACTICE_SESSION, CLEAR_PRACTICE_SESSION, CHANGE_SELECTED, NEXT_QUESTION, INCREMENT_CORRECT_ANSWER } from "../actions/types";
+import { 
+  CREATE_PRACTICE_SESSION,
+  CLEAR_PRACTICE_SESSION,
+  CHANGE_SELECTED,
+  NEXT_QUESTION, 
+  INCREMENT_CORRECT_ANSWER 
+} from "../actions/types";
 import { createQuestions } from "../utils/createQuestions";
 import randomString from 'random-string-simple';
 

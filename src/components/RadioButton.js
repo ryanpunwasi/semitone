@@ -48,6 +48,7 @@ class RadioButton extends React.Component {
   }
 
   playNote = () => {
+    this.setState({ isPlaying: true });
     let playPromise = this.props.note.play();
     if(this.state.isPlaying) {
       playPromise.then(_ => {
@@ -59,7 +60,7 @@ class RadioButton extends React.Component {
       this.setState({ isPlaying: false});
     }
 
-    this.setState({ isPlaying: true });
+    
     // this.props.note.load()
 
     // this.props.note.play();  
