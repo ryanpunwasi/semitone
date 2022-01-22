@@ -12,7 +12,7 @@ class InterfaceButton extends React.Component {
     if(this.props.autoplay) {
       setTimeout(() => {
         this.props.chord ? this.playChord(): this.playNote();
-      }, 1000)
+      }, 500)
       
     }
   }
