@@ -43,7 +43,7 @@ class Octave extends React.Component {
 
   renderDisabled = () => {
     if(this.state.selected >= 2) {
-      return false;
+      return false; 
     } 
     return true;
   }
@@ -70,7 +70,7 @@ class Octave extends React.Component {
             </div>
             <div className='d-sm-block d-block d-md-none d-lg-none'>
               <HorizontalRule text=""/>
-            </div>
+            </div> 
           </div>
           <div className="me-auto col-md-8 col-sm-12 mt-5">
             <div className="d-flex justify-content-evenly flex-wrap"> 

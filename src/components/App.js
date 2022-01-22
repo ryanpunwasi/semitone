@@ -11,10 +11,8 @@ import Header from './Header';
 import Home from './Home';
 import Octave from './Octave';
 import OctaveInfo from './OctaveInfo';
-import Scale from './Scale';
 import ScaleInfo from './ScaleInfo';
 import ScaleList from './ScaleList';
-import Chord from './Chord';
 import ChordInfo from './ChordInfo';
 import ChordList from './ChordList';
 import OnBoarding from './OnBoarding';
@@ -51,13 +49,14 @@ class App extends React.Component {
             <Route path='/octaves' exact component={Octave} />
             <Route path='/octaves/practice' exact component={Practice} />
             <Route path='/scales/' exact component={ScaleList} />
-            <Route path='/scales/:scale' exact component={Scale} />
+            <Route path='/scales/practice' exact component={Practice} />
             <Route path='/noteinfo' exact component={NoteInfo} />
             <Route path='/notes' exact component={Notes} />
+            <Route path='/notes/practice' exact component={Practice} />
             <Route path='/scaleinfo' exact component={ScaleInfo} />
             <Route path='/chords/' exact component={ChordList} />
             <Route path='/chordinfo/' exact component={ChordInfo} />
-            <Route path='/chords/:chord' exact component={Chord} />
+            <Route path='/chords/practice' exact component={Practice} />
             <Route path='/onboarding' exact component={OnBoarding} />
             <Route path='/score' exact component={Score} />
           </Switch>

@@ -126,7 +126,7 @@ class InterfaceButton extends React.Component {
   render() {
     return (
       <div>
-        <button className={`mb-3 button interface-button ${this.renderDisabled().class} ${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
+        <button className={`mb-3 button interface-button ${this.renderDisabled().class} interface-${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
           {this.renderAudioIcon()}
           
           {this.props.text}

@@ -6,6 +6,7 @@ import Image from '../assets/img/clarinet.svg';
 import HorizontalRule from './HorizontalRule';
 import './VerticalRule.css';
 import Dropdown from './Dropdown'; 
+import { isValidOctave } from '../utils/isValidOctave';
 
 class Notes extends React.Component {
   constructor(props) {
@@ -15,8 +16,15 @@ class Notes extends React.Component {
       c: false, csharp: false, d: false,
       eflat: false, e: false, f: false,
       fsharp: false, g: false, aflat: false,
-      a: false, bflat: false, b: false
+      a: false, bflat: false, b: false, selected: 0
     };
+  }
+  
+  renderDisabled = () => {
+    if(this.state.selected >= 2 && isValidOctave(this.state.octave)) {
+      return false; 
+    } 
+    return true;
   }
 
   handleChange = (value) => {
@@ -28,42 +36,49 @@ class Notes extends React.Component {
   }
 
   handleClick = (key, value) => {
+    let selected = this.state.selected;
+    if(value) {
+      selected = selected + 1;
+    } else {
+      selected = this.state.selected - 1;
+    }
+
     switch(key) {
       case 'c':
-        this.setState({ c: value});
+        this.setState({ c: value, selected });
         break;
         case 'csharp':
-      this.setState({ csharp: value});
+      this.setState({ csharp: value, selected });
       break;
       case 'd':
-        this.setState({ d: value});
+        this.setState({ d: value, selected });
         break;
       case 'eflat':
-        this.setState({ eflat: value});
+        this.setState({ eflat: value, selected });
         break;
       case 'e':
-        this.setState({ e: value});
+        this.setState({ e: value, selected });
         break;
       case 'f':
-        this.setState({ f: value});
+        this.setState({ f: value, selected });
         break;
       case 'fsharp':
-        this.setState({ fsharp: value});
+        this.setState({ fsharp: value, selected });
         break;
       case 'g':
-        this.setState({ g: value});
+        this.setState({ g: value, selected });
         break;
       case 'aflat':
-        this.setState({ aflat: value});
+        this.setState({ aflat: value, selected });
         break;
       case 'a':
-        this.setState({ a: value});
+        this.setState({ a: value, selected });
         break;
       case 'bflat':
-        this.setState({ bflat: value});
+        this.setState({ bflat: value, selected });
         break;
       case 'b':
-        this.setState({ b: value});
+        this.setState({ b: value, selected });
         break;
       default:
         break;
@@ -116,7 +131,7 @@ class Notes extends React.Component {
               <CheckBox text="B" color="transparent" value='b' handleClick={this.handleClick}/>
             </div>
             <div className="d-flex justify-content-center ms-4 mb-5">  
-                <Button Button color="blue" text="Start" wide submit={this.state}></Button>
+                <Button color="blue" text="Start" wide submit={this.state} modality='notes' disabled={this.renderDisabled()}></Button>
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createPracticeSession } from '../actions';
-//import { createQuestions } from '../utils/createQuestions';
 import './Button.css';
 
 const Button = (props) => {
@@ -13,7 +12,6 @@ const Button = (props) => {
   }
 
   const submitForm = () => {
-    //console.log(props.submit, props.modality);
     props.createPracticeSession(props.modality, props.submit);
   }
 
@@ -28,6 +26,7 @@ const Button = (props) => {
       );
     }
     return (
+      
       <div>
         <button onClick={submitForm} className={`mb-3 button ${props.wide ? 'wide': ''} ${props.color}`}>
           {props.text}

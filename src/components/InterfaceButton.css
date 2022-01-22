@@ -56,16 +56,16 @@
   margin-left: 6px;
 }
 
-.blue:hover {
+.interface-blue:hover {
   background-color: #1caff6;
 }
 
-.blue:active {
+.interface-blue:active {
   background-color: #1caff6;
   box-shadow: 0 3px #1899d6;
 }
 
-.blue {
+.interface-blue {
   background-color: #1cb0f6;
   box-shadow: 0 9px #1899d6;
   color: rgb(255, 255, 255);

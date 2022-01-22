@@ -4,6 +4,7 @@ import { changeSelected } from '../actions';
 import InterfaceButton from './InterfaceButton';
 import RadioButton from './RadioButton';
 import './Question.css';
+import { toNoteNotation } from '../utils/toNoteNotation';
 
 class Question extends React.Component {
   constructor(props) {
@@ -16,11 +17,6 @@ class Question extends React.Component {
     this.setState({ selected: true, value: val });
     
   }
-
-  componentDidUpdate() {
-    
-    
-  }
   
   renderText(rawLabel){
     if(rawLabel.includes('sharp') || rawLabel.includes('flat')) {
@@ -30,35 +26,75 @@ class Question extends React.Component {
   }
 
   renderSharp(label){
-    if(label.includes('sharp')) {
-      return true
+    if(this.props.mode === 'octaves') {
+      if(label.includes('sharp')) {
+        return true
+      }
+      return false;
     }
-    return false;
+    
   }
 
   renderFlat(label){
-    if(label.includes('flat')) {
-      return true;
+    if(this.props.mode === 'octaves') {
+      if(label.includes('flat')) {
+        return true;
+      }
+      return false
     }
-    return false
+    
+  }
+
+  renderRadioButtonValue = () => {
+    let values = []
+    switch(this.props.mode){
+      case 'octaves':
+        values = ["1", "2", "3", "4"]
+        break;
+      case 'notes':
+        values = [
+          this.props.question.options[1].label,
+          this.props.question.options[2].label,
+          this.props.question.options[3].label,
+          this.props.question.options[4].label,
+        ]
+        break;
+      default:
+        break;
+    };
+    return values;
+  }
+
+  renderInterFaceButtonText = () => {
+    let text = '';
+    switch(this.props.mode){
+      case 'octaves':
+        text = this.renderText(this.props.question.sound.label);
+        break;
+      case 'notes':
+        text = <i className="bi bi-question-lg"></i>
+        break;
+      default:
+        break;
+    }
+    return text;
   }
 
   render(){
+    const values = this.renderRadioButtonValue();
     return (
       <>
         <div className="col-6 mt-5">
           <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center align-items-center sound-button'>
-            <InterfaceButton text={this.renderText(this.props.question.sound.label)} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)}/>
+            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)}/>
           </div>
         </div>
         <div id="buttonGroup" className="col-6 mt-3">
             <form className='d-flex flex-row justify-content-center flex-wrap'>
-            
-              <RadioButton handleClick={this.handleClick} value="1" color="transparent" note={new Audio(this.props.question.options['1'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="2" color="transparent" note={new Audio(this.props.question.options['2'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="3" color="transparent" note={new Audio(this.props.question.options['3'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="4" color="transparent" note={new Audio(this.props.question.options['4'].soundFile)}/>
-          
+              <RadioButton handleClick={this.handleClick} value="1" text={toNoteNotation(values[0])} color="transparent" note={new Audio(this.props.question.options['1'].soundFile)}/>
+              <RadioButton handleClick={this.handleClick} value="2" text={toNoteNotation(values[1])} color="transparent" note={new Audio(this.props.question.options['2'].soundFile)}/>
+              <RadioButton handleClick={this.handleClick} value="3" text={toNoteNotation(values[2])} color="transparent" note={new Audio(this.props.question.options['3'].soundFile)}/>
+              <RadioButton handleClick={this.handleClick} value="4" text={toNoteNotation(values[3])} color="transparent" note={new Audio(this.props.question.options['4'].soundFile)}/>
             </form>
         </div>
       </>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { nextQuestion, incrementCorrectAnswer } from '../actions';
 import Button from './Button';
-
+import { toNoteNotation } from '../utils/toNoteNotation';
 import './Banner.css';
 
 class Banner extends React.Component {
@@ -15,7 +15,13 @@ class Banner extends React.Component {
     if(this.state.style === 'correct') {
       return {color: 'green', text: "That's correct!", buttonText: 'Continue'};
     } else if(this.state.style === 'incorrect') {
-      return {color: 'red', text: `The correct answer is ${this.props.question.answer}.`, buttonText: 'Continue'}
+      if(this.props.mode === 'octaves') {
+        return {color: 'red', text: `The correct answer is ${this.props.question.answer}.`, buttonText: 'Continue'}
+      } else if(this.props.mode === 'notes') {
+        return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)}.`, buttonText: 'Continue'}
+
+      }
+      
     } else {
       return {color: 'transparent', text: '', buttonText: 'Check'}
     }

@@ -15,7 +15,7 @@ export const two = {
   C: C,
   Csharp,
   D: D,
-  Dsharp,
+  Eflat: Dsharp,
   E: E,
   F: F,
   Fsharp,

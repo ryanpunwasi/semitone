@@ -7,11 +7,29 @@ import Banner from './Banner';
 import Modal from "./Modal";
 
 import { clearPracticeSession } from "../actions";
+import Message from "./Message";
 
 class Practice extends React.Component {
   constructor(props){
     super(props);
     this.state = { open: false, value: null, scorePage: false }
+  }
+
+  componentDidMount() {
+    anime({
+      targets: '.sound-button',
+      keyframes: [
+        {translateX: -5},
+        {translateX: 5},
+        {translateX: -5},
+        {translateX: 5},
+        {translateX: 0}
+      ],
+      duration: 900,
+      delay: 100,
+      easing: 'easeInOutQuad'
+    });
+    
   }
 
   deSelectRadioButton = () => {
@@ -43,6 +61,22 @@ class Practice extends React.Component {
     this.setState({ open: false });
   }
 
+  renderCaption = () => {
+    let caption = '';
+    switch(this.props.mode){
+      case 'octaves':
+        caption = 'Select the number that is the same note, but in a different octave.';
+        break;
+      case 'notes':
+        caption = 'Select the note that matches the audio.'
+        break;
+      default:
+        return caption
+    }
+
+    return caption;
+  }
+
   render() {
     // eslint-disable-next-line eqeqeq
     if(this.props.currentQuestion == '12') {
@@ -59,12 +93,17 @@ class Practice extends React.Component {
           </div>
         </div>
       </div>
+      <div className="row">
+        <div className="col-6 mx-auto">
+        <Message text={this.renderCaption()}/>
+        </div>
+      </div>
         <div className='row mt-3 question'>
             <Modal open={this.state.open} onClose={this.closeModal}/>
-            <Question question={this.props.questions[this.props.currentQuestion]}/>
+            <Question question={this.props.questions[this.props.currentQuestion]} mode={this.props.mode}/>
         </div>
         <div className='row mt-5'>
-          <Banner reset={this.deSelectRadioButton} animate={this.animate} question={this.props.questions[this.props.currentQuestion]} selectedAnswer={this.props.selectedAnswer}/>
+          <Banner reset={this.deSelectRadioButton} animate={this.animate} question={this.props.questions[this.props.currentQuestion]} selectedAnswer={this.props.selectedAnswer} mode={this.props.mode}/>
         </div>
       </div>
     );

@@ -4,13 +4,12 @@ import Button from './Button';
 import { Link } from 'react-router-dom';
 
 class Score extends React.Component {
-  state = { answered_correct: 10 };
   render() {
     return(
       <div className="container">
         <div className="row">
           <div className="col mt-5">
-            <Caption size='9rem' text={`${Math.round((this.props.answered_correct/14)*100)}%`} animated></Caption>
+            <Caption size='9rem' text={`${Math.round((this.props.answered_correct/12)*100)}%`} animated></Caption>
           </div>
         </div>
         <div className="row">

@@ -15,7 +15,7 @@ export const five = {
   C: C,
   Csharp: Csharp,
   D: D,
-  Dsharp,
+  Eflat: Dsharp,
   E: E,
   F: F,
   Fsharp: Fsharp,
