@@ -70,6 +70,9 @@ class Practice extends React.Component {
       case 'notes':
         caption = 'Select the note that matches the audio.'
         break;
+        case 'chords':
+          caption = 'Select the chord that matches the audio.'
+          break;
       default:
         return caption
     }

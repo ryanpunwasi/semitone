@@ -32,7 +32,6 @@ class Question extends React.Component {
       }
       return false;
     }
-    
   }
 
   renderFlat(label){
@@ -42,7 +41,6 @@ class Question extends React.Component {
       }
       return false
     }
-    
   }
 
   renderRadioButtonValue = () => {
@@ -59,6 +57,14 @@ class Question extends React.Component {
           this.props.question.options[4].label,
         ]
         break;
+      case 'chords':
+        values = [
+          this.props.question.options[1].label,
+          this.props.question.options[2].label,
+          this.props.question.options[3].label,
+          this.props.question.options[4].label,
+        ]
+        break;
       default:
         break;
     };
@@ -67,11 +73,14 @@ class Question extends React.Component {
 
   renderInterFaceButtonText = () => {
     let text = '';
-    switch(this.props.mode){
+    switch(this.props.mode) {
       case 'octaves':
         text = this.renderText(this.props.question.sound.label);
         break;
       case 'notes':
+        text = <i className="bi bi-question-lg"></i>
+        break;
+      case 'chords':
         text = <i className="bi bi-question-lg"></i>
         break;
       default:
@@ -80,21 +89,43 @@ class Question extends React.Component {
     return text;
   }
 
+  renderChord = () => {
+    if(this.props.mode === 'chords') {
+      return {
+        root: new Audio(this.props.question.sound.soundFile.root),
+        third: new Audio(this.props.question.sound.soundFile.third),
+        fifth: new Audio(this.props.question.sound.soundFile.fifth)
+      };
+    }
+    return false;
+  }
+
+  renderChordNotation = () => {
+    let values = [];
+    if(this.props.mode === 'chords') {
+      for(let i = 1; i < 5; i++) {
+        values.push(this.props.question.options[i].major_or_minor);
+      }
+    }
+    return values;
+  }
+
   render(){
     const values = this.renderRadioButtonValue();
+    const chord_notations = this.renderChordNotation();
     return (
       <>
         <div className="col-6 mt-5">
           <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center align-items-center sound-button'>
-            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)}/>
+            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)} chord={this.renderChord()}/>
           </div>
         </div>
         <div id="buttonGroup" className="col-6 mt-3">
             <form className='d-flex flex-row justify-content-center flex-wrap'>
-              <RadioButton handleClick={this.handleClick} value="1" text={toNoteNotation(values[0])} color="transparent" note={new Audio(this.props.question.options['1'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="2" text={toNoteNotation(values[1])} color="transparent" note={new Audio(this.props.question.options['2'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="3" text={toNoteNotation(values[2])} color="transparent" note={new Audio(this.props.question.options['3'].soundFile)}/>
-              <RadioButton handleClick={this.handleClick} value="4" text={toNoteNotation(values[3])} color="transparent" note={new Audio(this.props.question.options['4'].soundFile)}/>
+              <RadioButton handleClick={this.handleClick} value="1" text={toNoteNotation(values[0])} color="transparent" note={new Audio(this.props.question.options['1'].soundFile)} chordtype={chord_notations[0]}/>
+              <RadioButton handleClick={this.handleClick} value="2" text={toNoteNotation(values[1])} color="transparent" note={new Audio(this.props.question.options['2'].soundFile)} chordtype={chord_notations[1]}/>
+              <RadioButton handleClick={this.handleClick} value="3" text={toNoteNotation(values[2])} color="transparent" note={new Audio(this.props.question.options['3'].soundFile)} chordtype={chord_notations[2]}/>
+              <RadioButton handleClick={this.handleClick} value="4" text={toNoteNotation(values[3])} color="transparent" note={new Audio(this.props.question.options['4'].soundFile)} chordtype={chord_notations[3]}/>
             </form>
         </div>
       </>

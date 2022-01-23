@@ -39,12 +39,20 @@ class RadioButton extends React.Component {
       }
   }
 
+  renderChordNotation = () => {
+    const chordtype = this.props.chordtype === 'major' ? 'M' 
+    : this.props.chordtype === 'minor' ? 'm' 
+    : null;
+
+    return <span><sub>{chordtype}</sub></span>;
+  }
+
   renderOctave = () => {
     return <span><sub>{this.props.octave}</sub></span>;
   } 
 
   handleClick = () => {
-    this.setState({ value: !this.state.value });
+    //this.setState({ value: !this.state.value });
   }
 
   playNote = () => {
@@ -78,6 +86,7 @@ class RadioButton extends React.Component {
               {this.props.text}
               {this.renderSymbol()}
               {this.renderOctave()}
+              {this.renderChordNotation()}
             </span>
           </label>
         </div>

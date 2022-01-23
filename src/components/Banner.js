@@ -5,25 +5,41 @@ import Button from './Button';
 import { toNoteNotation } from '../utils/toNoteNotation';
 import './Banner.css';
 
+import correct from '../assets/sounds/correct.mp3';
+import incorrect from '../assets/sounds/incorrect.mp3';
+
+let correct_audio = new Audio(correct);
+let incorrect_audio = new Audio(incorrect);
+correct_audio.preload = 'auto';
+incorrect_audio.preload = 'auto';
+correct_audio.volume = 0.3;
+incorrect_audio.volume = 0.3;
+
 class Banner extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { style: 'none', hasAnswered: false};
+    this.state = { style: 'none', hasAnswered: false, hasPlayed: false};
   }
 
   renderStyle = () => {
     if(this.state.style === 'correct') {
+      
       return {color: 'green', text: "That's correct!", buttonText: 'Continue'};
     } else if(this.state.style === 'incorrect') {
+      
       if(this.props.mode === 'octaves') {
         return {color: 'red', text: `The correct answer is ${this.props.question.answer}.`, buttonText: 'Continue'}
       } else if(this.props.mode === 'notes') {
         return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)}.`, buttonText: 'Continue'}
+      } else if(this.props.mode === 'chords') {
+        return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)} ${this.props.question.options[this.props.question.answer].major_or_minor}.`, buttonText: 'Continue'}
 
       }
       
     } else {
+      
       return {color: 'transparent', text: '', buttonText: 'Check'}
+      
     }
   }
 
@@ -39,9 +55,11 @@ class Banner extends React.Component {
     } else {
       // eslint-disable-next-line eqeqeq
       if(this.props.question.answer == this.props.selectedAnswer) {
+        correct_audio.play();
         this.props.incrementCorrectAnswer();
-        this.setState({ style: 'correct', hasAnswered: true});
+        this.setState({ style: 'correct', hasAnswered: true });
       } else if(this.props.question.answer !== this.props.selectedAnswer){
+        incorrect_audio.play();
         this.setState({ style: 'incorrect', hasAnswered: true });
       }
     }  
