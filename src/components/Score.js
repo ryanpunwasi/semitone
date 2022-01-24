@@ -1,7 +1,6 @@
 import React from 'react';
 import Caption from './Caption';
 import Button from './Button';
-import { Link } from 'react-router-dom';
 
 class Score extends React.Component {
   render() {
@@ -19,24 +18,24 @@ class Score extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-3">
-            <Link to='/octaves'>
+            <a href='http://localhost:3000/octaves'>
               <Button text="Octaves" color="pink" wide/>
-            </Link>
+            </a>
           </div>
           <div className="col-3">
-            <Link to='/notes'>
+            <a href='http://localhost:3000/notes'>
               <Button text="Notes" color="blue" wide></Button>
-            </Link>
+            </a>
           </div>
           <div className="col-3">
-            <Link to='/chords'>
+            <a href='http://localhost:3000/chords'>
               <Button text="Chords" color="red" wide></Button>
-            </Link>
+            </a>
           </div>
           <div className="col-3">
-            <Link to='/scales'>
+            <a href='http://localhost:3000/scales'>
               <Button text="Scales" color="green" wide></Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

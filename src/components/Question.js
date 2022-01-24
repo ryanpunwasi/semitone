@@ -117,7 +117,7 @@ class Question extends React.Component {
       <>
         <div className="col-6 mt-5">
           <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center align-items-center sound-button'>
-            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)} chord={this.renderChord()}/>
+            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)} chord={this.renderChord()} mode={this.props.mode}/>
           </div>
         </div>
         <div id="buttonGroup" className="col-6 mt-3">

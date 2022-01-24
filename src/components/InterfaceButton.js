@@ -1,6 +1,8 @@
 import React from 'react';
 import './InterfaceButton.css';
 
+
+
 class InterfaceButton extends React.Component {
 
   constructor(props) {
@@ -9,6 +11,22 @@ class InterfaceButton extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props.mode === 'octaves' || this.props.mode === 'notes'){
+      document.addEventListener('keyup', (event) => {
+        document.getElementById('root').focus()
+        if(event.key === " ") {
+            this.playNote();
+        }
+      });
+    } else if(this.props.mode === 'chords') {
+      document.addEventListener('keyup', (event) => {
+        document.getElementById('root').focus()
+        if(event.key === " ") {
+            this.playChord();
+        }
+      });
+    }
+
     if(this.props.autoplay) {
       setTimeout(() => {
         this.props.chord ? this.playChord(): this.playNote();
@@ -126,7 +144,7 @@ class InterfaceButton extends React.Component {
   render() {
     return (
       <div>
-        <button className={`mb-3 button interface-button ${this.renderDisabled().class} interface-${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
+        <button id="interfaceButton" className={`mb-3 button interface-button ${this.renderDisabled().class} interface-${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
           {this.renderAudioIcon()}
           
           {this.props.text}

@@ -15,6 +15,10 @@ class Practice extends React.Component {
     this.state = { open: false, value: null, scorePage: false }
   }
 
+  componentDidUpdate(){
+    document.activeElement.blur();
+  }
+
   componentDidMount() {
     anime({
       targets: '.sound-button',

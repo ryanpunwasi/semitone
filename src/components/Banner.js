@@ -21,6 +21,17 @@ class Banner extends React.Component {
     this.state = { style: 'none', hasAnswered: false, hasPlayed: false};
   }
 
+  componentDidMount(){
+    if(this.props.mode) {
+      document.addEventListener('keydown', (event) => {
+        if(event.key === "Enter") {
+            document.getElementById('checkButton').focus();
+            this.handleClick();
+        }
+      });
+    }
+  }
+
   renderStyle = () => {
     if(this.state.style === 'correct') {
       
@@ -72,7 +83,7 @@ class Banner extends React.Component {
           <span className={`banner-text-${this.renderStyle().color} ms-5 fw-bolder`}>
           {this.renderStyle().text}
           </span>
-          <div className='me-5 banner-button mt-1' onClick={this.handleClick}>
+          <div id='checkButton' className='me-5 banner-button mt-1' onClick={this.handleClick}>
             <Button color={this.renderStyle().color} text={this.renderStyle().buttonText} wide></Button>
           </div>
           
