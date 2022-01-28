@@ -34,22 +34,22 @@ class Score extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-3">
-            <Link to='../../octaves'>
+            <Link to='/octaves'>
               <Button text="Octaves" color="pink" wide/>
             </Link>
           </div>
           <div className="col-3">
-            <Link to='../../notes'>
+            <Link to='/notes'>
               <Button text="Notes" color="blue" wide></Button>
             </Link>
           </div>
           <div className="col-3">
-            <Link to='../../chords'>
+            <Link to='/chords'>
               <Button text="Chords" color="red" wide></Button>
             </Link>
           </div>
           <div className="col-3">
-            <Link to='../../scales'>
+            <Link to='/scales'>
               <Button text="Scales" color="green" wide></Button>
             </Link>
           </div>
