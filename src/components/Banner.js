@@ -23,14 +23,14 @@ class Banner extends React.Component {
 
   componentDidMount(){
     // During practice sessions, submit answer when Enter is pressed.
-    if(this.props.mode) {
-      document.addEventListener('keydown', (event) => {
-        if(event.key === "Enter") {
-            document.getElementById('checkButton').focus();
-            this.handleClick();
-        }
-      });
-    }
+    // if(this.props.mode) {
+    //   document.addEventListener('keydown', (event) => {
+    //     if(event.key === "Enter") {
+    //         document.getElementById('checkButton').focus();
+    //         this.handleClick();
+    //     }
+    //   });
+    // }
   }
 
   renderStyle = () => {
