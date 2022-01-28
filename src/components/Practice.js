@@ -74,9 +74,12 @@ class Practice extends React.Component {
       case 'notes':
         caption = 'Select the note that matches the audio.'
         break;
-        case 'chords':
-          caption = 'Select the chord that matches the audio.'
-          break;
+      case 'chords':
+        caption = 'Select the chord that matches the audio.'
+        break;
+      case 'scales':
+        caption = 'Select the scale that matches the audio.'
+        break;
       default:
         return caption
     }
@@ -110,7 +113,7 @@ class Practice extends React.Component {
             <Question question={this.props.questions[this.props.currentQuestion]} mode={this.props.mode}/>
         </div>
         <div className='row mt-5'>
-          <Banner reset={this.deSelectRadioButton} animate={this.animate} question={this.props.questions[this.props.currentQuestion]} selectedAnswer={this.props.selectedAnswer} mode={this.props.mode}/>
+          <Banner reset={this.deSelectRadioButton} animate={this.animate} question={this.props.questions[this.props.currentQuestion]} selectedAnswer={this.props.selectedAnswer} mode={this.props.mode} currentQuestion={this.props.currentQuestion}/>
         </div>
       </div>
     );

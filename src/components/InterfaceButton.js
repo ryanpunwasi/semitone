@@ -1,8 +1,6 @@
 import React from 'react';
 import './InterfaceButton.css';
 
-
-
 class InterfaceButton extends React.Component {
 
   constructor(props) {
@@ -11,28 +9,27 @@ class InterfaceButton extends React.Component {
   }
 
   componentDidMount() {
-    if(this.props.mode === 'octaves' || this.props.mode === 'notes'){
-      document.addEventListener('keyup', (event) => {
-        document.getElementById('root').focus()
-        if(event.key === " ") {
-            this.playNote();
-        }
-      });
-    } else if(this.props.mode === 'chords') {
-      document.addEventListener('keyup', (event) => {
-        document.getElementById('root').focus()
-        if(event.key === " ") {
-            this.playChord();
-        }
-      });
-    }
+    // if(this.props.mode === 'octaves' || this.props.mode === 'notes'){
+    //   document.addEventListener('keyup', (event) => {
+       
+    //     if(event.key === " ") {
+    //       setTimeout(this.playNote(), 1000);  
+    //     }
+    //   });
+    // } else if(this.props.mode === 'chords') {
+    //   document.addEventListener('keyup', (event) => {
+    //     if(event.key === " ") {
+    //       this.playChord();
+    //     }
+    //   });
+    // }
 
-    if(this.props.autoplay) {
-      setTimeout(() => {
-        this.props.chord ? this.playChord(): this.playNote();
-      }, 500)
+    // if(this.props.autoplay) {
+    //   setTimeout(() => {
+    //     this.props.chord ? this.playChord(): this.playNote();
+    //   }, 500)
       
-    }
+    // }
   }
   
   componentWillUnmount() {
@@ -48,20 +45,23 @@ class InterfaceButton extends React.Component {
   }
 
   playNote = () => {
-    
-    if(this.state.isPlaying) {
-      this.props.note.pause();
-    }
-
-    this.props.note.onended = () => {
-      this.setState({ isPlaying: false});
-    }
-    
-    this.setState({ isPlaying: true });
-    this.props.note.load()
-    this.props.note.play();  
-
+    if(this.props.mode === 'scales') {
+      let audio = document.getElementById('audio');
+      audio.play()
+    } else {
+      if(this.state.isPlaying) {
+        this.props.note.load();
+      }
+  
+      this.props.note.onended = () => {
+        this.setState({ isPlaying: false});
+      }
+      
+      this.setState({ isPlaying: true });
      
+      this.props.note.play();    
+    }
+    
   }
 
   playChord = () => {
@@ -141,12 +141,18 @@ class InterfaceButton extends React.Component {
     return disabled;
   }
 
+  renderHtmlAudioTag = () => {
+    if(this.props.mode === 'scales') {
+      return <audio id='audio' src={this.props.soundFile}></audio>;
+    }
+  }
+
   render() {
     return (
       <div>
         <button id="interfaceButton" className={`mb-3 button interface-button ${this.renderDisabled().class} interface-${this.props.color}`} onClick={this.props.chord ? this.playChord: this.playNote} disabled={this.renderDisabled().disabled}>
           {this.renderAudioIcon()}
-          
+          {this.renderHtmlAudioTag()}
           {this.props.text}
           {this.renderSymbol()}
           {this.renderOctave()}

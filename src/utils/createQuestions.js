@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { Question } from './Question';
 import { NOTES_BY_OCTAVE } from '../octaves/octaves';
 import { CHORDS_BY_OCTAVE } from '../chords/chords';
+import { SCALES_BY_OCTAVE } from '../scales/scales';
 import { mapOctaveIntegerToString } from './mapOctaveIntegerToString';
 import { toTitleCase } from './toTitleCase';
 
@@ -24,6 +25,17 @@ export const createQuestions = (mode, params) => {
     'E', 'F', 'Fsharp', 'G',
     'Aflat', 'A', 'Bflat', 'B'
   ];
+
+  const SCALES = [
+    'Cmajor', 'Dmajor', 'Emajor',
+    'Fmajor', 'Gmajor', 'Amajor',
+    'Bmajor', 'Csharpmajor', 'Eflatmajor',
+    'Fsharpmajor', 'Aflatmajor', 'Bflatmajor',
+    'Cminor', 'Dminor', 'Eminor',
+    'Fminor', 'Gminor', 'Aminor',
+    'Bminor', 'Csharpminor', 'Eflatminor',
+    'Fsharpminor', 'Aflatminor', 'Bflatminor',
+  ]
   
   if(mode === 'octaves') {
     const newParams = {};
@@ -107,7 +119,7 @@ export const createQuestions = (mode, params) => {
         selected_notes.push(property);
       }
       // eslint-disable-next-line eqeqeq
-      if(property == 'octave'){
+      if(property == 'octave') {
         selected_octave = mapOctaveIntegerToString(newParams[property]);
       }
     }
@@ -212,11 +224,11 @@ export const createQuestions = (mode, params) => {
   // Generate an array (chords_to_practice) of chords to practice, chords_to_practice.length === 12
 
   let chords_to_practice_count = null;
-    if(selected_chords.length > 5) {
-      chords_to_practice_count = 6;
-    } else {
-      chords_to_practice_count = selected_chords.length;
-    }
+  if(selected_chords.length > 5) {
+    chords_to_practice_count = 6;
+  } else {
+    chords_to_practice_count = selected_chords.length;
+  }
 
   let chords_to_practice = _.sampleSize(selected_chords, chords_to_practice_count);
   while(chords_to_practice.length < 12) {
@@ -295,6 +307,114 @@ export const createQuestions = (mode, params) => {
     questions.push(question);
   }
 
+}
+
+//--------------------MODE: SCALES---------------------//
+if(mode === 'scales') {
+  const newParams = {};
+  Object.assign(newParams, params);
+  delete newParams.selected;
+
+  const selected_scales = [];
+  let selected_octave;
+  const selected_major_minor = [];
+
+  for(const property in newParams) {
+    // eslint-disable-next-line eqeqeq
+    if(property == 'octave') {
+      const raw_octave = newParams[property];
+      selected_octave = mapOctaveIntegerToString(raw_octave.toString());
+      continue;
+    } 
+
+    // eslint-disable-next-line eqeqeq
+    if((property == 'major' || property == 'minor') && (newParams[property])) {
+      selected_major_minor.push(property);
+      continue;
+    }
+    
+    if(typeof newParams[property] == "boolean" && newParams[property]) {
+      selected_scales.push(property);
+    }
+  }
+
+  let scales_to_practice_count;
+  if(selected_scales.length > 5) {
+    scales_to_practice_count = 6;
+  } else {
+    scales_to_practice_count = selected_scales.length;
+  }
+  let scales_to_practice = _.sampleSize(selected_scales, scales_to_practice_count);
+  while(scales_to_practice.length < 12) {
+    scales_to_practice = scales_to_practice
+    .concat(Array.from(scales_to_practice));
+    }
+  while(scales_to_practice.length > 12) {
+    scales_to_practice.pop();
+  }
+    
+  scales_to_practice = _.shuffle(scales_to_practice);
+  console.log(scales_to_practice)
+  for(let scale of scales_to_practice) {
+    const random_major_minor = _.sample(selected_major_minor);
+    let formatted_scale = toTitleCase(scale) + random_major_minor;
+    console.log(scale)
+    let sound = {
+      label: formatted_scale,
+      major_or_minor: random_major_minor,
+      soundFile: SCALES_BY_OCTAVE[selected_octave][random_major_minor][formatted_scale]
+    }
+
+    const answer = _.sample([1, 2, 3, 4]);
+
+    const options = {};
+    const created_options = [];
+
+    for(let i = 1; i < 5; i++) {
+      if(i === answer) {
+        options[i] = {
+          label: toTitleCase(scale),
+          major_or_minor: random_major_minor
+        }
+        created_options.push(toTitleCase(scale));
+      } else {
+          const optionPool = _.filter(NOTES, (element) => {
+          return element !== toTitleCase(scale);
+        });
+
+        let optionScale = _.sample(optionPool);
+        while(created_options.includes(toTitleCase(optionScale))){
+          optionScale = _.sample(optionPool);
+        }
+ 
+        created_options.push(toTitleCase(optionScale));
+        
+        let option_major_or_minor;
+        // eslint-disable-next-line eqeqeq
+        if(selected_major_minor.length === 2) {
+          option_major_or_minor = _.sample(selected_major_minor);
+        // eslint-disable-next-line eqeqeq
+        } else if(selected_major_minor[0] == 'major') {
+          option_major_or_minor = _.sample(selected_major_minor);
+        } else {
+          option_major_or_minor = 'minor';
+        }
+        options[i] = {
+          label: toTitleCase(optionScale),
+          major_or_minor: option_major_or_minor
+
+        }    
+      } 
+    }
+
+    const question = new Question(
+      sound,
+      answer,
+      options
+    );
+
+    questions.push(question);
+  }
 }
 
   return questions;

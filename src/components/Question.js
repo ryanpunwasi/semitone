@@ -12,6 +12,10 @@ class Question extends React.Component {
     this.state = { selected: false, value: null };
   }
 
+  componentDidMount() {
+    document.getElementById('interfaceButton').focus();
+  }
+
   handleClick = (val) => {  
     this.props.changeSelected(val);
     this.setState({ selected: true, value: val });
@@ -65,6 +69,14 @@ class Question extends React.Component {
           this.props.question.options[4].label,
         ]
         break;
+      case 'scales':
+        values = [
+          this.props.question.options[1].label,
+          this.props.question.options[2].label,
+          this.props.question.options[3].label,
+          this.props.question.options[4].label,
+        ];
+        break;
       default:
         break;
     };
@@ -81,6 +93,9 @@ class Question extends React.Component {
         text = <i className="bi bi-question-lg"></i>
         break;
       case 'chords':
+        text = <i className="bi bi-question-lg"></i>
+        break;
+      case 'scales':
         text = <i className="bi bi-question-lg"></i>
         break;
       default:
@@ -102,12 +117,20 @@ class Question extends React.Component {
 
   renderChordNotation = () => {
     let values = [];
-    if(this.props.mode === 'chords') {
+    if(this.props.mode === 'chords' || this.props.mode === 'scales') {
       for(let i = 1; i < 5; i++) {
         values.push(this.props.question.options[i].major_or_minor);
       }
     }
     return values;
+  }
+
+  renderNote = () => {
+    if(this.props.mode === 'scales') {
+      return this.props.question.sound.soundFile;
+    } else {
+      return new Audio(this.props.question.sound.soundFile)
+    }
   }
 
   render(){
@@ -117,7 +140,7 @@ class Question extends React.Component {
       <>
         <div className="col-6 mt-5">
           <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center align-items-center sound-button'>
-            <InterfaceButton text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={new Audio(this.props.question.sound.soundFile)} chord={this.renderChord()} mode={this.props.mode}/>
+            <InterfaceButton soundFile={this.props.question.sound.soundFile} text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={this.renderNote()} chord={this.renderChord()} mode={this.props.mode}/>
           </div>
         </div>
         <div id="buttonGroup" className="col-6 mt-3">

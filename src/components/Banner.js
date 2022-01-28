@@ -44,7 +44,8 @@ class Banner extends React.Component {
         return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)}.`, buttonText: 'Continue'}
       } else if(this.props.mode === 'chords') {
         return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)} ${this.props.question.options[this.props.question.answer].major_or_minor}.`, buttonText: 'Continue'}
-
+      } else if(this.props.mode === 'scales') {
+        return {color: 'red', text: `The correct answer is ${toNoteNotation(this.props.question.options[this.props.question.answer].label)} ${this.props.question.options[this.props.question.answer].major_or_minor}.`, buttonText: 'Continue'}
       }
       
     } else {
@@ -59,11 +60,19 @@ class Banner extends React.Component {
       return;
     }
     if(this.state.hasAnswered) {
-      this.props.reset();
-      this.props.nextQuestion();
-      this.props.animate();
-      this.setState({ style: 'none', hasAnswered: false });
+      if(this.props.mode === 'scales') {
+        document.getElementById('audio').load()
+      }
+      if(this.props.currentQuestion !== '12') {
+        this.props.reset();
+        this.props.nextQuestion();
+        this.props.animate();
+        this.setState({ style: 'none', hasAnswered: false });
+      }
     } else {
+      if(this.props.mode === 'scales') {
+        document.getElementById('audio').load()
+      }
       // eslint-disable-next-line eqeqeq
       if(this.props.question.answer == this.props.selectedAnswer) {
         correct_audio.play();

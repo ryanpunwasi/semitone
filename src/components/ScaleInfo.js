@@ -4,7 +4,7 @@ import InterfaceButton from './InterfaceButton';
 import Button from './Button';
 import Image from '../assets/img/keyboard-majorscale.svg';
 import ImageTwo from '../assets/img/keyboard-minorscale.svg';
-import AMinor from '../assets/octave-3/AMinorScale.mp3';
+import AMinor from '../assets/octave-3/Aminor.mp3';
 
 const ScaleInfo = () => {
   return (
