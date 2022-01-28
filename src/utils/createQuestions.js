@@ -343,11 +343,9 @@ if(mode === 'scales') {
   }
     
   scales_to_practice = _.shuffle(scales_to_practice);
-  console.log(scales_to_practice)
   for(let scale of scales_to_practice) {
     const random_major_minor = _.sample(selected_major_minor);
     let formatted_scale = toTitleCase(scale) + random_major_minor;
-    console.log(scale)
     let sound = {
       label: formatted_scale,
       major_or_minor: random_major_minor,
