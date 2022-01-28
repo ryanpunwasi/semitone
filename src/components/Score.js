@@ -33,22 +33,22 @@ class Score extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-3">
-            <a href={`${this.renderRoot()}/octaves`}>
+            <a href='localhost:3000/octaves'>
               <Button text="Octaves" color="pink" wide/>
             </a>
           </div>
           <div className="col-3">
-            <a href={`${this.renderRoot()}/notes`}>
+            <a href='localhost:3000/notes'>
               <Button text="Notes" color="blue" wide></Button>
             </a>
           </div>
           <div className="col-3">
-            <a href={`${this.renderRoot()}/chords`}>
+            <a href='localhost:3000/chords'>
               <Button text="Chords" color="red" wide></Button>
             </a>
           </div>
           <div className="col-3">
-            <a href={`${this.renderRoot()}/scales`}>
+            <a href='localhost:3000/scales'>
               <Button text="Scales" color="green" wide></Button>
             </a>
           </div>
