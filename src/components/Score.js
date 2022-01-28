@@ -1,6 +1,7 @@
 import React from 'react';
 import Caption from './Caption';
 import Button from './Button';
+import { Link } from 'react-router-dom';
 import '../config/dev';
 import '../config/prod';
 
@@ -33,24 +34,24 @@ class Score extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-3">
-            <a href='localhost:3000/octaves'>
+            <Link to='localhost:3000/octaves'>
               <Button text="Octaves" color="pink" wide/>
-            </a>
+            </Link>
           </div>
           <div className="col-3">
-            <a href='localhost:3000/notes'>
+            <Link to='localhost:3000/notes'>
               <Button text="Notes" color="blue" wide></Button>
-            </a>
+            </Link>
           </div>
           <div className="col-3">
-            <a href='localhost:3000/chords'>
+            <Link to='localhost:3000/chords'>
               <Button text="Chords" color="red" wide></Button>
-            </a>
+            </Link>
           </div>
           <div className="col-3">
-            <a href='localhost:3000/scales'>
+            <Link to='localhost:3000/scales'>
               <Button text="Scales" color="green" wide></Button>
-            </a>
+            </Li>
           </div>
         </div>
       </div>
