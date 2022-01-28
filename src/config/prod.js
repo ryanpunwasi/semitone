@@ -1,1 +1,1 @@
-const ROOT = 'http://semitone.io';
+export const ROOT = 'http://semitone.io';
