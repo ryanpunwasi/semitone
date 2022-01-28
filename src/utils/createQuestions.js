@@ -299,6 +299,7 @@ export const createQuestions = (mode, params) => {
 }
 
 //--------------------MODE: SCALES---------------------//
+
 if(mode === 'scales') {
   const newParams = {};
   Object.assign(newParams, params);
