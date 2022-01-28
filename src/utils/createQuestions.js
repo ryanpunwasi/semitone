@@ -25,17 +25,6 @@ export const createQuestions = (mode, params) => {
     'E', 'F', 'Fsharp', 'G',
     'Aflat', 'A', 'Bflat', 'B'
   ];
-
-  const SCALES = [
-    'Cmajor', 'Dmajor', 'Emajor',
-    'Fmajor', 'Gmajor', 'Amajor',
-    'Bmajor', 'Csharpmajor', 'Eflatmajor',
-    'Fsharpmajor', 'Aflatmajor', 'Bflatmajor',
-    'Cminor', 'Dminor', 'Eminor',
-    'Fminor', 'Gminor', 'Aminor',
-    'Bminor', 'Csharpminor', 'Eflatminor',
-    'Fsharpminor', 'Aflatminor', 'Bflatminor',
-  ]
   
   if(mode === 'octaves') {
     const newParams = {};
