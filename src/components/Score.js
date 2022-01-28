@@ -1,8 +1,23 @@
 import React from 'react';
 import Caption from './Caption';
 import Button from './Button';
+import '../config/dev';
+import '../config/prod';
+
+
+
 
 class Score extends React.Component {
+  renderRoot = () => {
+    let root;
+    if(window.location.hostname === 'semitone.io') {
+      root = 'http://semitone.io';
+    } else {
+      root = 'http://localhost:3000';
+    }
+
+    return root;
+  }
   render() {
     return(
       <div className="container">
@@ -18,22 +33,22 @@ class Score extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-3">
-            <a href='http://localhost:3000/octaves'>
+            <a href={`${this.renderRoot()}/octaves`}>
               <Button text="Octaves" color="pink" wide/>
             </a>
           </div>
           <div className="col-3">
-            <a href='http://localhost:3000/notes'>
+            <a href={`${this.renderRoot()}/notes`}>
               <Button text="Notes" color="blue" wide></Button>
             </a>
           </div>
           <div className="col-3">
-            <a href='http://localhost:3000/chords'>
+            <a href={`${this.renderRoot()}/chords`}>
               <Button text="Chords" color="red" wide></Button>
             </a>
           </div>
           <div className="col-3">
-            <a href='http://localhost:3000/scales'>
+            <a href={`${this.renderRoot()}/scales`}>
               <Button text="Scales" color="green" wide></Button>
             </a>
           </div>
