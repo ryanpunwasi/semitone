@@ -28,7 +28,7 @@ const Home = () => {
         </Link>
         <div className='row'>
           <div className='col'>
-            <a href="https://twitter.com/BryndenDevant" target="_blank" rel="noreferrer">
+            <a href="https://twitter.com/RyanPunwasi" target="_blank" rel="noreferrer">
             <Button text='Report a bug' color='blue' wide></Button>
             </a>
           </div>

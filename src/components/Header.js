@@ -13,7 +13,8 @@ const Header = () => {
   }
 
   return (
-    <nav className='navbar navbar-light bg-light p-1 border-bottom border-2 mb-4'>
+    <nav className='navbar navbar-expand-lg navbar-light bg-light p-1 border-bottom border-2 mb-4'>
+      <div>
         <ul className="navbar-nav">
             <li className="nav-item me-5">
               <Link className='nav-link' to='/'>
@@ -45,6 +46,7 @@ const Header = () => {
               </Link>          
             </li>
         </ul>
+      </div>
     </nav>
   );
 };

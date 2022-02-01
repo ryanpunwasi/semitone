@@ -35,7 +35,7 @@
 
 @media (max-height: 576px) {
   .fixed-bottom {
-    min-height: 15%;
+    min-height: 70px;
     max-height: 12vh;
   }
 
@@ -61,6 +61,13 @@
     min-height: 12vh;
   }
 
+  .banner-text-red,
+  .banner-text-green {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 575px) {
   .banner-text-red,
   .banner-text-green {
     font-size: 1.1rem;
