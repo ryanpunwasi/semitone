@@ -98,7 +98,7 @@ class Practice extends React.Component {
       <div className='container'>
         <div className="row">
         <div className="d-flex justify-content-between">
-          <div className='mt-5 ms-3 h3 pe-auto' onClick={() => this.setState({open: true})}>
+          <div className='mt-4 ms-3 h3 pe-auto' onClick={() => this.setState({open: true})}>
             <i className="bi bi-x-lg x"></i>
           </div>
         </div>

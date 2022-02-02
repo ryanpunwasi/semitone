@@ -138,12 +138,12 @@ class Question extends React.Component {
     const chord_notations = this.renderChordNotation();
     return (
       <>
-        <div className="col-6 mt-5">
-          <div className='d-flex justify-content-end justify-content-md-center justify-content-sm-center align-items-center sound-button'>
+        <div className="col-4 col-sm-6 mt-5">
+          <div className='d-flex justify-content-center justify-content-md-center justify-content-sm-center align-items-center sound-button'>
             <InterfaceButton soundFile={this.props.question.sound.soundFile} text={this.renderInterFaceButtonText()} color="blue" sharp={this.renderSharp(this.props.question.sound.label)} flat={this.renderFlat(this.props.question.sound.label)} note={this.renderNote()} chord={this.renderChord()} mode={this.props.mode}/>
           </div>
         </div>
-        <div id="buttonGroup" className="col-6 mt-3">
+        <div id="buttonGroup" className="col-8 col-sm-6 mt-3">
             <form className='d-flex flex-row justify-content-center flex-wrap'>
               <RadioButton handleClick={this.handleClick} value="1" text={toNoteNotation(values[0])} color="transparent" note={new Audio(this.props.question.options['1'].soundFile)} chordtype={chord_notations[0]}/>
               <RadioButton handleClick={this.handleClick} value="2" text={toNoteNotation(values[1])} color="transparent" note={new Audio(this.props.question.options['2'].soundFile)} chordtype={chord_notations[1]}/>
