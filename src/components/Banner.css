@@ -72,4 +72,8 @@
   .banner-text-green {
     font-size: 1.1rem;
   }
+  .fixed-bottom {
+    padding-left: 10px;
+    padding-right: 0px;
+  }
 }
