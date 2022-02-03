@@ -56,7 +56,7 @@ class HomeAnimation extends React.Component {
         <div className='container'>
           <div className='row'>
             <div className='col-6 offset-md-3 mx-auto'>
-              <div onClick={this.pianoAnimate}>
+              <div id='piano' onClick={this.pianoAnimate}>
                 <img id='interactivePiano' className='d-inline-block mx-auto' src={Image} alt='' title={this.props.scale}/>
                 <audio id='audio' src=''></audio>
               </div>

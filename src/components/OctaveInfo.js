@@ -58,7 +58,7 @@ const OctaveInfo = () => {
         </div>
       </div>
       <div className='row'>
-        <div className='col-8 mx-auto d-flex justify-content-center'>
+        <div className='col-10 col-sm-8 mx-auto d-flex justify-content-center'>
         <div className='col-4 mt-5 mx-auto d-flex justify-content-center'>
           <div>
           <InterfaceButton text="C" color="outline" octave='2' note={new Audio(C1)}/>
