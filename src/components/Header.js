@@ -21,27 +21,27 @@ const Header = () => {
                 <h3 className='d-none d-sm-inline ms-2 logo-text'>Semitone</h3>
               </Link>          
             </li>
-            <li className="nav-item me-5">
+            <li className="nav-item me-4">
               <Link className='nav-link' to='/notes'>
-                <img className='img-fluid d-inline' src={IconFour} alt='' width='30' height='30'/>
+                <img className='header-icon img-fluid d-none d-sm-inline' src={IconFour} alt='' width='30' height='30'/>
                 <p className='d-inline ms-2'>Notes</p>
               </Link>          
             </li>
-            <li className="nav-item me-5">
+            <li className="nav-item me-4">
               <Link className='nav-link' to='/octaves'>
-                <img className='img-fluid d-inline' src={IconTwo} alt='' width='30' height='30'/>
+                <img className='header-icon img-fluid d-none d-sm-inline' src={IconTwo} alt='' width='30' height='30'/>
                 <p className='d-inline ms-2'>Octaves</p>
               </Link>          
             </li>
-            <li className="nav-item me-5">
+            <li className="nav-item me-4">
               <Link className='nav-link' to='/scales'>
-                <img className='img-fluid d-inline' src={IconOne} alt='' width='30' height='30'/>
+                <img className='header-icon img-fluid d-none d-sm-inline' src={IconOne} alt='' width='30' height='30'/>
                 <p className='d-inline ms-2'>Scales</p>
               </Link>          
             </li>
-            <li className="nav-item me-5 mb-1">
+            <li className="nav-item me-4 mb-1">
               <Link className='nav-link' to='/chords'>
-                <img className='img-fluid d-inline' src={IconThree} alt='' width='30' height='30'/>
+                <img className='header-icon img-fluid d-none d-sm-inline' src={IconThree} alt='' width='30' height='30'/>
                 <p className='d-inline ms-2'>Chords</p>
               </Link>          
             </li>

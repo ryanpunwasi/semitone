@@ -14,3 +14,9 @@
 .logo-text {
   font-family: 'Dancing Script';
 }
+
+@media only screen and (max-width: 400px) {
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
