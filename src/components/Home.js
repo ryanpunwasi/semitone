@@ -22,7 +22,7 @@ const Home = () => {
     </div>
     <div className='container'>
       <div className='row'>
-        <div className='col-sm-6 col-md-6 col-lg-4 mx-auto mt-5 mb-0'>
+        <div className='col-sm-6 col-md-6 col-lg-4 mx-auto mt-3 mb-0'>
         <Link to='/onboarding'>
           <Button text='Continue' color='red' wide></Button>
         </Link>
@@ -31,6 +31,13 @@ const Home = () => {
             <a href="https://twitter.com/RyanPunwasi" target="_blank" rel="noreferrer">
             <Button text='Report a bug' color='blue' wide></Button>
             </a>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col'>
+            <Link to='/credits'>
+              <Button text='Credits' color='green' wide></Button>
+            </Link>
           </div>
         </div>
       </div>
