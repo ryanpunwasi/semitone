@@ -20,7 +20,7 @@ import Notes from './Notes';
 import NoteInfo from './NoteInfo';
 import Practice from './Practice';
 import Score from './Score';
-import Credits from './Credits';
+//import Credits from './Credits';
 
 class App extends React.Component {
 
@@ -60,7 +60,6 @@ class App extends React.Component {
             <Route path='/chords/practice' exact component={Practice} />
             <Route path='/onboarding' exact component={OnBoarding} />
             <Route path='/score' exact component={Score} />
-            <Route path='/credits' exact component={Credits} />
           </Switch>
         </Router>
       </React.Fragment>

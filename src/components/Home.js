@@ -33,13 +33,13 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className='row'>
+        {/* <div className='row'>
           <div className='col'>
             <Link to='/credits'>
               <Button text='Credits' color='green' wide></Button>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   </div>
