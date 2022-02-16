@@ -107,9 +107,9 @@ class Question extends React.Component {
   renderChord = () => {
     if(this.props.mode === 'chords') {
       return {
-        root: new Audio(this.props.question.sound.soundFile.root),
-        third: new Audio(this.props.question.sound.soundFile.third),
-        fifth: new Audio(this.props.question.sound.soundFile.fifth)
+        root: this.props.question.sound.soundFile.root,
+        third: this.props.question.sound.soundFile.third,
+        fifth: this.props.question.sound.soundFile.fifth
       };
     }
     return false;

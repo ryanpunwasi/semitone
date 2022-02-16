@@ -65,10 +65,18 @@ class InterfaceButton extends React.Component {
   }
 
   playChord = () => {
-
-    let root = this.props.chord.root;
-    let third = this.props.chord.third;
-    let fifth = this.props.chord.fifth;
+    let root, third, fifth;
+    if(this.props.mode === 'chords') {
+      root = document.getElementById('chord_root');
+      third = document.getElementById('chord_third');
+      fifth = document.getElementById('chord_fifth');
+    } else {
+      console.log(this.props.chord.root)
+      root = new Audio(this.props.chord.root.src);
+      third = new Audio(this.props.chord.third.src);
+      fifth = new Audio(this.props.chord.fifth.src);
+    }
+    
 
     root.onended = () => {
       if(third.ended && fifth.ended) {
@@ -144,6 +152,17 @@ class InterfaceButton extends React.Component {
   renderHtmlAudioTag = () => {
     if(this.props.mode === 'scales') {
       return <audio id='audio' src={this.props.soundFile}></audio>;
+    } 
+
+    if(this.props.mode === 'chords') {
+      return (
+        <>
+          <audio id='chord_root' src={this.props.chord.root}></audio>
+          <audio id='chord_third' src={this.props.chord.third}></audio>
+          <audio id='chord_fifth' src={this.props.chord.fifth}></audio>
+        </>
+      
+      );
     }
   }
 

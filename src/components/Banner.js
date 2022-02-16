@@ -64,6 +64,11 @@ class Banner extends React.Component {
       if(this.props.mode === 'scales') {
         document.getElementById('audio').load()
       }
+      if(this.props.mode === 'chords') {
+        document.getElementById('chord_root').load();
+        document.getElementById('chord_third').load();
+        document.getElementById('chord_fifth').load();
+      }
       if(this.props.currentQuestion !== '12') {
         this.props.reset();
         this.props.nextQuestion();
@@ -73,6 +78,11 @@ class Banner extends React.Component {
     } else {
       if(this.props.mode === 'scales') {
         document.getElementById('audio').load()
+      }
+      if(this.props.mode === 'chords') {
+        document.getElementById('chord_root').load();
+        document.getElementById('chord_third').load();
+        document.getElementById('chord_fifth').load();
       }
       // eslint-disable-next-line eqeqeq
       if(this.props.question.answer == this.props.selectedAnswer) {
