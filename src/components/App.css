@@ -2,9 +2,11 @@
   font-family: Mallanna;
 }
 
-.container {
-  min-height: 100vh;
-  min-height: 100%;
+.page-container {
+  min-height: 90vh;
+  min-width: 90vw;
+  margin-top: -20px;
+  gap: 3em;
 }
 
 .x {
