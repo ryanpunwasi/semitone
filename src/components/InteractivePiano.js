@@ -49,7 +49,7 @@ const InteractivePiano = props => {
     <section id="animation">
       <div className="container">
         <div className="row">
-          <div className="col-6 offset-md-3 mx-auto">
+          <div className="col-md-6 col-sm-12 offset-md-3 mx-auto">
             <div id="piano" onClick={animate}>
               <img
                 id="interactivePiano"

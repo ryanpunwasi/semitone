@@ -5,3 +5,9 @@
 #interactivePiano:hover {
   cursor: pointer;
 }
+
+@media (max-width: 575px) {
+  #interactivePiano {
+    min-width: 100%;
+  }
+}
