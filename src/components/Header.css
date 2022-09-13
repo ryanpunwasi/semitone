@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Mallanna&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mallanna&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
 .nav-link {
-  font-family: 'Mallanna';
+  font-family: "Mallanna";
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .navbar-nav {
@@ -12,7 +12,7 @@
 }
 
 .logo-text {
-  font-family: 'Dancing Script';
+  font-family: "Dancing Script";
 }
 
 @media only screen and (max-width: 400px) {
