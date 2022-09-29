@@ -6,7 +6,7 @@ General Styling
 
 .button {
   display: inline-block;
-  padding: 5px 25px;
+  padding: 0.5em 3em;
   font-size: 1rem;
   font-weight: 800;
   cursor: pointer;

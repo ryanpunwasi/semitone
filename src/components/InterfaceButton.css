@@ -89,10 +89,10 @@
 
 @media (max-width: 775px) {
   .interface-button {
-    width: 80px; /* whatever width you want for mobile screen */
+    width: 80px;
     max-width: 100%;
     max-height: 100%;
-    height: 70px; /* whatever height you want for mobile screen */
+    height: 70px;
     font-size: 1.2rem;
   }
   .bi-stop-fill,
