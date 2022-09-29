@@ -1,4 +1,4 @@
-import { isValidOctave } from "../utils/isValidOctave";
+import { isValidOctave } from "../utils/isValidOctave.ts";
 
 describe("isValidOctave", () => {
   it("returns true if given the string value 1", () => {
