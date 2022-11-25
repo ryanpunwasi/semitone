@@ -28,12 +28,40 @@ const NoteAudio = () => {
   }, [notes]);
 
   const renderAudio = () => {
-    return notes["1"].map(note => {
-      return <audio controls key={note.id} ref={refsById[note.id]}></audio>;
-    });
+    const keys = Object.keys(notes);
+    let notesAudio = [];
+    for (let key of keys) {
+      const notesInAnOctave = notes[key].map(note => {
+        return (
+          <audio
+            controls
+            key={note.id}
+            src={note.src}
+            ref={refsById[note.id]}
+          ></audio>
+        );
+      });
+
+      notesAudio = [...notesAudio, ...notesInAnOctave];
+    }
+
+    return notesAudio;
   };
 
-  return <div>{!_.isEmpty(notes) && !loading && renderAudio()}</div>;
+  return (
+    <div>
+      {!_.isEmpty(notes) && !loading && renderAudio()}
+      <button
+        onClick={() => {
+          const note = refsById["12"].current;
+          note.load();
+          note.play();
+        }}
+      >
+        Click
+      </button>
+    </div>
+  );
 };
 
 export default NoteAudio;
