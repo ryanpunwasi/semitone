@@ -7,12 +7,10 @@ import ImageTwo from "../assets/img/keyboard-sf.svg";
 import DFlat from "../assets/octave-4/Csharp.mp3";
 import D from "../assets/octave-4/D.mp3";
 import DSharp from "../assets/octave-4/Dsharp.mp3";
-import NoteAudio from "./NoteAudio";
 
 const NoteInfo = () => {
   return (
     <div className="container">
-      <NoteAudio />
       <div className="row">
         <div className="d-flex justify-content-between">
           <Link to="/onboarding">
