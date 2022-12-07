@@ -10,7 +10,7 @@ export const useNoteAudio = () => {
         setNotes(response.data.notes);
       });
     }
-  }, []);
+  }, [notes]);
 
   return notes;
 };
