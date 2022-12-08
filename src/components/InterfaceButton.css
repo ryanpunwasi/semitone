@@ -17,7 +17,12 @@
   border-top: 3px solid #b1b1b1;
   border-left: 3px solid #b1b1b1;
   border-right: 3px solid #b1b1b1;
-  box-shadow: 0 6px #b1b1b1;
+  box-shadow: 0 9px #b1b1b1;
+}
+
+.interface-button:active {
+  transform: translateY(6px);
+  box-shadow: 0 3px #b1b1b1;
 }
 
 .interface-disabled {
