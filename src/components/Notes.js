@@ -115,7 +115,7 @@ class Notes extends React.Component {
                   <img src={Image} alt="Radio" className="d-block mx-auto" />
                 </div>
                 <h4 className="mb-5 text-center text-muted fw-bolder">
-                  Select the specific notes you'd like to practice!
+                  Select the notes you'd like to practice!
                 </h4>
               </div>
             </div>
