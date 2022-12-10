@@ -28,7 +28,7 @@ const OnBoarding = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-3 mx-auto">
             <Link className="d-inline" to="/notes">
